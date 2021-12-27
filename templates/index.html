@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+<div align="middle">
+    <form action="/answer" method="POST">
+        <label for="word">Slovo:</label>
+        <input type="text" id="word" name="inputword" required>
+        <button type="submit" id="submission">Překlad</button>
+
+        <br>
+        <label for="0">
+            <input type="radio" id="0" name="direction" value="0" required>
+            Joranština --> Čeština
+        </label>
+        <br>
+        <label for="1">
+            <input type="radio" id="1" name="direction" value="1" required>
+            Čeština --> Joranština
+        </label>
+    </form>
+</div>
+</body>
+</html>
