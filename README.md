@@ -1,0 +1,2 @@
+# yoranish
+Yoranish dictionary.
