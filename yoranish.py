@@ -19,7 +19,7 @@ def divide_chunks(input_list, n):
 
 def translate(word, direction):
     for phrase in dictionary:
-        if word == phrase[direction]:
+        if word.lower() == phrase[direction].lower():
             return phrase[1 - direction]
     return "---NENALEZENO---"
 
