@@ -18,5 +18,10 @@ def answer():
         return render_template("answer.html", output=output)
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 if __name__ == "__main__":
     app.run()
