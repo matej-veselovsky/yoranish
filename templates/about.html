@@ -2,10 +2,12 @@
 
 {% block body %}
     <form action="/">
-        <h4>Několik slov od autora joranštiny - Lukáše Tomáška</h4>
-        {% for line in content: %}
-            <p>{{line}}</p>
-        {% endfor %}
+        <div id="aboutText">
+            <h4>Několik slov od autora joranštiny - Lukáše Tomáška</h4>
+            {% for line in content: %}
+                <p>{{line}}</p>
+            {% endfor %}
+        </div>
         <br>
         <button type="submit">Zpátky</button>
     </form>

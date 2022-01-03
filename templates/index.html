@@ -1,7 +1,7 @@
 {% extends "layouts.html" %}
 
 {% block body %}
-    <form action="/" method="POST" id="query">
+    <form action="/" method="POST" id="query" class="center">
         <label for="inputword">Slovo:</label>
         <input type="text" autocomplete="off" id="inputword" name="inputword" required autofocus>
         <button type="submit">Překlad</button>
@@ -24,15 +24,4 @@
     </form>
     <br>
     <h1>{{output}}</h1>
-
-
-
-    <!-- <script type="text/javascript">
-        function listen() {
-            document.selectQuery("#query").addEventListener("submit", function() {
-                document.getElementById("#answer").innerHTML = "<h1>Překlad: " + {output} + "</h1>"
-            })
-        }
-        
-    </script> -->
 {% endblock %}
