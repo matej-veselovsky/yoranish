@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>O slovníku</title>
-</head>
-<body>
-<div align="middle">
-    <h4><p>Joranština je jazyk uměle vytvořený Lukášem Tomáškem.</p>
-<p>Toto je verze slovníku 0.1 z prosince 2021
-    vytvořená M. Veselovským.</p></h4>
-    <br>
+{% extends "layouts.html" %}
+
+{% block body %}
     <form action="/">
-    <button type="submit">Zpátky</button>
+        <h4>Několik slov od autora joranštiny - Lukáše Tomáška</h4>
+        {% for line in content: %}
+            <p>{{line}}</p>
+        {% endfor %}
+        <br>
+        <button type="submit">Zpátky</button>
     </form>
-</div>
-
-
-</body>
-</html>
+{% endblock %}
