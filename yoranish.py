@@ -1,16 +1,17 @@
-def divide_chunks(input_list, n):
-    for i in range(0, len(input_list), n):
-        yield input_list[i:i + n]
-
+import sqlite3
 
 def translate(word, direction):
-    for phrase in dictionary:
-        if word.lower() == phrase[direction].lower():
-            return phrase[1 - direction]
-    return "---NENALEZENO---"
+    with sqlite3.connect("yoranish.db") as con:
+        cur = con.cursor()
 
-
-# z txt seznamu, kde je na každém řádku jedno slovo vytvoří mega-list, kde každá položka je list-dvojice joranština-čeština
-with open("yoranish.txt", "r", encoding="utf-8-sig") as file:
-    content_list = file.read().split("\n")
-    dictionary = list(divide_chunks(content_list, 2))
+        if direction == 0:
+            query = "SELECT czech_word FROM czech_words WHERE reference_id IN (SELECT yoranish_id FROM yoranish_words WHERE yoranish_word IS (?) COLLATE NOCASE);"
+        else:
+            query = "SELECT yoranish_word FROM yoranish_words WHERE yoranish_id IN (SELECT reference_id FROM czech_words WHERE czech_word IS (?) COLLATE NOCASE);"
+            
+        cur.execute(query, [word])
+        answer = cur.fetchall()
+        if answer:
+            return answer
+        else:
+            return 0

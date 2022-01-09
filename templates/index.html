@@ -23,5 +23,12 @@
         <button type="submit">O slovníku</button>
     </form>
     <br>
-    <h1>{{output}}</h1>
+    
+    {% if output != 0 %}
+        {% for translation in output %}
+            <h1>{{translation[0]}}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>---NENALEZENO---</h1>
+    {% endif %}
 {% endblock %}
